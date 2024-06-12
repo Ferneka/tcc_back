@@ -17,6 +17,7 @@ namespace TCCLions.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AdministradorConfiguration());
+            modelBuilder.ApplyConfiguration(new AtaConfiguration());
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<Administrador> Administrador {get; set;}
