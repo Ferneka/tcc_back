@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCCLions.Api", "TCCLions.Api\TCCLions.Api.csproj", "{A1344CAD-8D43-41BD-B135-C56FE65A0861}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCCLions.Domain", "TCCLions.Domain\TCCLions.Domain.csproj", "{930EA2CD-077F-41C4-9485-88ED376F6EB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCCLions.Infrastructure", "TCCLions.Infrastructure\TCCLions.Infrastructure.csproj", "{2CC65FDA-AED7-4285-A681-06C63A6FC947}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1344CAD-8D43-41BD-B135-C56FE65A0861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1344CAD-8D43-41BD-B135-C56FE65A0861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1344CAD-8D43-41BD-B135-C56FE65A0861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1344CAD-8D43-41BD-B135-C56FE65A0861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930EA2CD-077F-41C4-9485-88ED376F6EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930EA2CD-077F-41C4-9485-88ED376F6EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930EA2CD-077F-41C4-9485-88ED376F6EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930EA2CD-077F-41C4-9485-88ED376F6EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC65FDA-AED7-4285-A681-06C63A6FC947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC65FDA-AED7-4285-A681-06C63A6FC947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC65FDA-AED7-4285-A681-06C63A6FC947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC65FDA-AED7-4285-A681-06C63A6FC947}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\src\\TCC\\TCCLionsBack\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1344CAD-8D43-41BD-B135-C56FE65A0861}|TCCLions.Api\\TCCLions.Api.csproj|c:\\src\\tcc\\tcclionsback\\tcclions.api\\tcclions.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A1344CAD-8D43-41BD-B135-C56FE65A0861}|TCCLions.Api\\TCCLions.Api.csproj|solutionrelative:tcclions.api\\tcclions.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CC65FDA-AED7-4285-A681-06C63A6FC947}|TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj|c:\\src\\tcc\\tcclionsback\\tcclions.infrastructure\\tcclions.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2CC65FDA-AED7-4285-A681-06C63A6FC947}|TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj|solutionrelative:tcclions.infrastructure\\tcclions.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TCCLions.Api",
+              "DocumentMoniker": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Api\\TCCLions.Api.csproj",
+              "RelativeDocumentMoniker": "TCCLions.Api\\TCCLions.Api.csproj",
+              "ToolTip": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Api\\TCCLions.Api.csproj",
+              "RelativeToolTip": "TCCLions.Api\\TCCLions.Api.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-29T15:54:07.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TCCLions.Infrastructure",
+              "DocumentMoniker": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
+              "ToolTip": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
+              "RelativeToolTip": "TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-29T15:54:02.179Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

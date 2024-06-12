@@ -1,0 +1,17 @@
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\bin\Debug\net8.0\TCCLions.Infrastructure.deps.json
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\bin\Debug\net8.0\TCCLions.Infrastructure.runtimeconfig.json
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\bin\Debug\net8.0\TCCLions.Infrastructure.dll
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\bin\Debug\net8.0\TCCLions.Infrastructure.pdb
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\bin\Debug\net8.0\TCCLions.Domain.dll
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\bin\Debug\net8.0\TCCLions.Domain.pdb
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.csproj.AssemblyReference.cache
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.AssemblyInfoInputs.cache
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.AssemblyInfo.cs
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.csproj.CoreCompileInputs.cache
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.AC9FED20.Up2Date
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.dll
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\refint\TCCLions.Infrastructure.dll
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.pdb
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.genruntimeconfig.cache
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\ref\TCCLions.Infrastructure.dll
