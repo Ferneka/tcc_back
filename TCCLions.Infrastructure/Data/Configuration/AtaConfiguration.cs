@@ -28,7 +28,7 @@ namespace TCCLions.Infrastructure.Data.Configuration
             modelBuilder.Property(prop => prop.IdAdmin)
             .IsRequired()
             .HasColumnName("IdAdmin")
-            .HasColumnType("varchar(40)");
+            .HasColumnType("text");
         }   
     }
 }

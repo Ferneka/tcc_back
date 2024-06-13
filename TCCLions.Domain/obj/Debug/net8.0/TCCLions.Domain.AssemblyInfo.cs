@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TCCLions.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27378773896a3adff266a7bc0b066b571df20205")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62ebb388a88f970960b302b7c10b9509dad14050")]
 [assembly: System.Reflection.AssemblyProductAttribute("TCCLions.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TCCLions.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

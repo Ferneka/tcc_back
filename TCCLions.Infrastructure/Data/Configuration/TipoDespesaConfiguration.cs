@@ -8,17 +8,17 @@ using TCCLions.Domain.Data.Models;
 
 namespace TCCLions.Infrastructure.Data.Configuration
 {
-    public class ComissaoConfiguration : IEntityTypeConfiguration<Comissao>
+    public class TipoDespesaConfiguration : IEntityTypeConfiguration<TipoDespesa>
     {
-        public void Configure(EntityTypeBuilder<Comissao> modelBuilder){
-            modelBuilder.ToTable("Comissao");
+        public void Configure(EntityTypeBuilder<TipoDespesa> modelBuilder){
+            modelBuilder.ToTable("TipoDespesa");
 
-            modelBuilder.HasKey(prop => prop.IdComissao);
+            modelBuilder.HasKey(prop => prop.IdTipoDespesa);
 
-            modelBuilder.Property(prop => prop.IdTipoComissao)
+            modelBuilder.Property(prop => prop.Descricao)
             .IsRequired()
-            .HasColumnName("IdTipoComissao")
-            .HasColumnType("text");
+            .HasColumnName("Descricao")
+            .HasColumnType("varchar(50)");
 
             modelBuilder.Property(prop => prop.IdAdmin)
             .IsRequired()
