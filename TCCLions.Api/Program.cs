@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using TCCLions.Domain.Data.Repositories;
 using TCCLions.Infrastructure.Data;
+using TCCLions.Infrastructure.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 builder.Services.AddDbContext<ApplicationDataContext>(opt => 
 opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();

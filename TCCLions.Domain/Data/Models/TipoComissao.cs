@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace TCCLions.Domain.Data.Models
 {
-    public class TipoComissao
+    public class TipoComissao : BaseEntity
     {
-        public Guid IdTipoComissao {get; private set;} = Guid.NewGuid();
         public string Descricao {get; set;}
         public Guid IdAdmin {get; set;}
         public Administrador Administrador {get; set;}

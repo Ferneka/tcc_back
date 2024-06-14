@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TCCLions.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62ebb388a88f970960b302b7c10b9509dad14050")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12f171a99f6b0820764643711180c726c965c03c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TCCLions.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TCCLions.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
