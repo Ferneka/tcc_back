@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using TCCLions.Api.Application;
 using TCCLions.Infrastructure.Data.Dtos;
 using TCCLions.Infrastructure.Services;
+using TCCLions.Infrastructure.Services.Interfaces;
 
 namespace TCCLions.Api.Controllers
 {
@@ -14,26 +15,48 @@ namespace TCCLions.Api.Controllers
     [Route("api/[controller]")]
     public class AtaController : ControllerBase
     {
-        private readonly IAtaService _ataService;
+       private readonly IAtaService _ataService;
         public AtaController(IAtaService ataService){
             _ataService = ataService;
         }
         [HttpPost]
-        public async Task<ActionResult> Add(AtaViewModel ataViewModel){
+        public async Task<ActionResult> Add(AtaViewModel request){
             var ataDto = new AtaDto{
-                Titulo = ataViewModel.Titulo,
-                Descricao = ataViewModel.Descricao
+                Titulo = request.Titulo,
+                Descricao = request.Descricao
             };
             await _ataService.Add(ataDto);
             return Ok();
         }
         [HttpGet]
-        public async Task<List<AtaDto>> GetAll(){
-            return await _ataService.GetAll();
+        public async Task<ActionResult<List<AtaDto>>> GetAll(){
+            var request = await _ataService.GetAll();
+            if(request.Count < 0) return NoContent();
+            return Ok(request);
         }
         [HttpGet("{id:guid}")]
-        public async Task<AtaDto> GetById(Guid id){
-            return await _ataService.GetById(id);
+        public async Task<ActionResult<AtaDto>> GetById(Guid id){
+            var request = await _ataService.GetById(id, ataDto);
+            if(request == null) return NotFound();
+            return Ok(request);
         }
+        [HttpDelete("{id:guid}")]
+        public async Task<ActionResult> Delete(Guid id){
+            var result = await _ataService.Delete(id);
+            if(!result) return NotFound();
+            return Ok();
+        }
+        [HttpPut]
+        public async Task<ActionResult> Update(Guid id, AtaViewModel request){
+            var result = await _ataService.Update(id,
+                new AtaDto{
+                    Titulo = request.Titulo,
+                    Descricao = request.Descricao
+                }
+             );
+             if(!result) return BadRequest();
+             return Ok(result);
+        }
+
     }
 }
