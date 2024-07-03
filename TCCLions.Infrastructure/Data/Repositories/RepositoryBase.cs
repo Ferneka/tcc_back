@@ -3,51 +3,102 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using TCCLions.Domain.Data.Models;
 using TCCLions.Domain.Data.Repositories;
 
 namespace TCCLions.Infrastructure.Data.Repositories
 {
-    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseEntity
+    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
-        protected readonly ApplicationDataContext _context;
-        public RepositoryBase(ApplicationDataContext context){
+        private readonly ApplicationDataContext _context;
+        protected readonly DbSet<TEntity> _entity;
+        public RepositoryBase(ApplicationDataContext context)
+        {
             _context = context;
+            _entity = _context.Set<TEntity>();
         }
         public async Task<Guid> Add(TEntity entity)
         {
-            _context.Set<TEntity>().Add(entity);
-           await  _context.SaveChangesAsync();
+            _entity.Add(entity);
+           
             var getId = entity.GetType().GetProperty("Id");
-            return (Guid)getId.GetValue(entity);
+            try
+            {
+                await _context.SaveChangesAsync();
+                return (Guid)getId.GetValue(entity); 
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+            
         }
 
-        public async Task<bool> Delete(TEntity entity)
+        public async Task<bool> Delete(Guid id)
         {
-            _context.Remove(entity);
-            return await _context.SaveChangesAsync() > 0;
+            var entity = _entity.Find(id);
+            _entity.Remove(entity);
+            try
+            {
+                return await _context.SaveChangesAsync() > 0;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
         }
 
         public async Task<List<TEntity>> GetAll()
         {
-            var result = _context.Set<TEntity>();
-            if(result.Count() > 0) return await result.ToListAsync();
-            return null;
+            try
+            {
+                var request = await _entity.ToListAsync();
+                if(request.Any()) return request;
+                return null;
+            }
+            catch (System.Exception)
+            {
+                return null;
+            }
         }
+
         public async Task<TEntity> GetById(Guid id)
         {
-            var getId =  _context.Set<TEntity>().Where(x => x.Id == id);
-            if(getId.Any()) return getId.FirstOrDefault();
-            return null;
+            try
+            {
+                var request = await _entity.FindAsync(id);
+                if(request == null) return null;
+                return request;
+            }
+            catch (System.Exception)
+            {
+                
+                return null;
+            }
+          
         }
 
         public async Task<bool> Update(Guid id, TEntity entity)
         {
-            var getEntity = await _context.Set<TEntity>().FindAsync(id);
-            if(getEntity == null) return false;
-            _context.Entry(getEntity).CurrentValues.SetValues(entity);
-            await _context.SaveChangesAsync();
-            return true;
+            var request = await _entity.FindAsync(id);
+            if(request == null) return false; 
+            var entry = _context.Entry(request);
+            foreach(var property in entry.Properties){
+                if(property.Metadata.Name != "Id"){
+                    property.CurrentValue = entity.GetType().GetProperty(property.Metadata.Name).GetValue(entity);
+                    property.IsModified = true;
+                }
+            }
+            try
+            {     
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

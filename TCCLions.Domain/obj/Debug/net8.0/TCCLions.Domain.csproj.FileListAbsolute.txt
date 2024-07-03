@@ -9,3 +9,4 @@ C:\src\TCC\TCCLionsBack\TCCLions.Domain\obj\Debug\net8.0\TCCLions.Domain.dll
 C:\src\TCC\TCCLionsBack\TCCLions.Domain\obj\Debug\net8.0\refint\TCCLions.Domain.dll
 C:\src\TCC\TCCLionsBack\TCCLions.Domain\obj\Debug\net8.0\TCCLions.Domain.pdb
 C:\src\TCC\TCCLionsBack\TCCLions.Domain\obj\Debug\net8.0\ref\TCCLions.Domain.dll
+C:\src\TCC\TCCLionsBack\TCCLions.Domain\obj\Debug\net8.0\TCCLions.Domain.sourcelink.json

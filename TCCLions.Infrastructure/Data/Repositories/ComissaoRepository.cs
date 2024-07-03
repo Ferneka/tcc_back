@@ -9,8 +9,9 @@ namespace TCCLions.Infrastructure.Data.Repositories
 {
     public class ComissaoRepository : RepositoryBase<Comissao>, IComissaoRepository
     {
-        public ComissaoRepository(ApplicationDataContext context) : base(context){
-            
-        }
+       public ComissaoRepository(ApplicationDataContext context) : base(context)
+       {
+        
+       }
     }
 }

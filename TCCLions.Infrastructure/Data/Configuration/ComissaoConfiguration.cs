@@ -13,17 +13,13 @@ namespace TCCLions.Infrastructure.Data.Configuration
         public void Configure(EntityTypeBuilder<Comissao> modelBuilder){
             modelBuilder.ToTable("Comissao");
 
-            modelBuilder.HasKey(prop => prop.IdComissao);
+            modelBuilder.HasKey(prop => prop.Id);
 
             modelBuilder.Property(prop => prop.IdTipoComissao)
             .IsRequired()
             .HasColumnName("IdTipoComissao")
             .HasColumnType("text");
 
-            modelBuilder.Property(prop => prop.IdAdmin)
-            .IsRequired()
-            .HasColumnName("IdAdmim")
-            .HasColumnType("text");
         }
     }
 }

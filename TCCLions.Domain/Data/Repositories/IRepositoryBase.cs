@@ -10,7 +10,7 @@ namespace TCCLions.Domain.Data.Repositories
         Task<List<TEntity>> GetAll();
         Task<Guid> Add(TEntity entity);
         Task<bool> Update(Guid id, TEntity entity);
-        Task<bool> Delete(TEntity entity);
+        Task<bool> Delete(Guid id);
         Task<TEntity> GetById(Guid id);
          
     }

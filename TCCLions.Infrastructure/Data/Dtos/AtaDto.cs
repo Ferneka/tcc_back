@@ -10,6 +10,5 @@ namespace TCCLions.Infrastructure.Data.Dtos
         public Guid IdAta {get; set;}
         public string Titulo {get; set;}
         public string Descricao {get; set;}
-        public Guid IdAdmin {get; set;}
     }
 }

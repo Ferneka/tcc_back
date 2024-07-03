@@ -13,17 +13,12 @@ namespace TCCLions.Infrastructure.Data.Configuration
         public void Configure(EntityTypeBuilder<TipoDespesa> modelBuilder){
             modelBuilder.ToTable("TipoDespesa");
 
-            modelBuilder.HasKey(prop => prop.IdTipoDespesa);
+            modelBuilder.HasKey(prop => prop.Id);
 
             modelBuilder.Property(prop => prop.Descricao)
             .IsRequired()
             .HasColumnName("Descricao")
             .HasColumnType("varchar(50)");
-
-            modelBuilder.Property(prop => prop.IdAdmin)
-            .IsRequired()
-            .HasColumnName("IdAdmim")
-            .HasColumnType("text");
         }
     }
 }

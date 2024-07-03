@@ -6,7 +6,7 @@ using TCCLions.Domain.Data.Models;
 
 namespace TCCLions.Domain.Data.Repositories
 {
-    public interface IAtaRepository : IRepositoryBase<Ata>
+    public interface IAtaRepository : IRepositoryBase<Ata> 
     {
         
     }

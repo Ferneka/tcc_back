@@ -12,6 +12,5 @@ namespace TCCLions.Infrastructure.Data.Dtos
         public string DataRegistro {get; set;}
         public double ValorTotal {get; set;}
         public Guid IdMembro {get; set;}
-        public Guid IdAdmim {get; set;}
     }
 }

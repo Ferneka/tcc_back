@@ -7,11 +7,11 @@ using TCCLions.Domain.Data.Repositories;
 
 namespace TCCLions.Infrastructure.Data.Repositories
 {
-    public class DespesaRepository : RepositoryBase<Despesa>, IDespesaRepository
+    public class TipoDespesaRepository : RepositoryBase<TipoDespesa>, ITipoDespesaRepository
     {
-        public DespesaRepository(ApplicationDataContext context):base(context)
-        {
+           public TipoDespesaRepository(ApplicationDataContext context) : base(context)
+           {
             
-        }
+           }
     }
 }

@@ -15,3 +15,4 @@ C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\refint\TCCLions
 C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.pdb
 C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.genruntimeconfig.cache
 C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\ref\TCCLions.Infrastructure.dll
+C:\src\TCC\TCCLionsBack\TCCLions.Infrastructure\obj\Debug\net8.0\TCCLions.Infrastructure.sourcelink.json

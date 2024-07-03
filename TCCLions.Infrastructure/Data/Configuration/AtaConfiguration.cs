@@ -25,10 +25,6 @@ namespace TCCLions.Infrastructure.Data.Configuration
             .HasColumnName("AtaDescricao")
             .HasColumnType("text");
 
-            modelBuilder.Property(prop => prop.IdAdmin)
-            .IsRequired()
-            .HasColumnName("IdAdmin")
-            .HasColumnType("text");
         }   
     }
 }

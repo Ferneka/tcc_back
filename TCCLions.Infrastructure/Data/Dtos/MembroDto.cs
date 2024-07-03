@@ -16,6 +16,5 @@ namespace TCCLions.Infrastructure.Data.Dtos
         public string Email {get; set;}
         public string EstadoCivil {get; set;}
         public string CPF {get; set;}
-        public Guid IdAdmin {get; set;}
     }
 }

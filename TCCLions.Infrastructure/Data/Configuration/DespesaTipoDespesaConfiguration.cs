@@ -13,7 +13,7 @@ namespace TCCLions.Infrastructure.Data.Configuration
         public void Configure(EntityTypeBuilder<DespesaTipoDespesa> modelBuilder){
             modelBuilder.ToTable("Despesa e Tipo Despesa");
 
-            modelBuilder.HasKey(prop => prop.IdDespesaTipoDespesa);
+            modelBuilder.HasKey(prop => prop.Id);
 
             modelBuilder.Property(prop => prop.IdDespesa)
             .IsRequired()

@@ -13,7 +13,7 @@ namespace TCCLions.Infrastructure.Data.Configuration
         public void Configure(EntityTypeBuilder<Despesa> modelBuilder){
             modelBuilder.ToTable("Despesa");
             
-            modelBuilder.HasKey(prop => prop.IdDespesa);
+            modelBuilder.HasKey(prop => prop.Id);
 
             modelBuilder.Property(prop => prop.DataVencimento)
             .IsRequired()
@@ -27,7 +27,7 @@ namespace TCCLions.Infrastructure.Data.Configuration
 
             modelBuilder.Property(prop => prop.ValorTotal)
             .IsRequired()
-            .HasColumnName("DataVencimento")
+            .HasColumnName("ValorTotal")
             .HasColumnType("decimal(8,2)");
 
             modelBuilder.Property(prop => prop.IdMembro)
@@ -35,10 +35,7 @@ namespace TCCLions.Infrastructure.Data.Configuration
             .HasColumnName("IdMembro")
             .HasColumnType("text");
 
-            modelBuilder.Property(prop => prop.IdAdmim)
-            .IsRequired()
-            .HasColumnName("IdAdmin")
-            .HasColumnType("text");
+    
         
         }
     }

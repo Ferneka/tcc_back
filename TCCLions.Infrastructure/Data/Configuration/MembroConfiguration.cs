@@ -13,7 +13,7 @@ namespace TCCLions.Infrastructure.Data.Configuration
         public void Configure(EntityTypeBuilder<Membro> modelBuilder){
             modelBuilder.ToTable("Membro");
 
-            modelBuilder.HasKey(prop => prop.IdMembro);
+            modelBuilder.HasKey(prop => prop.Id);
 
             modelBuilder.Property(prop => prop.Nome)
             .IsRequired()
@@ -54,11 +54,7 @@ namespace TCCLions.Infrastructure.Data.Configuration
             .IsRequired()
             .HasColumnName("CPF")
             .HasColumnType("varchar(11)");
-            
-            modelBuilder.Property(prop => prop.IdAdmin)
-            .IsRequired()
-            .HasColumnName("IdAdmin")
-            .HasColumnType("text");
+           
         }
     }
 }
