@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TCCLions.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5a9159276426bb2b203fd9a339da1465e022861")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab9d2492b5c6e029c185a8eb767b328e1dc27342")]
 [assembly: System.Reflection.AssemblyProductAttribute("TCCLions.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TCCLions.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

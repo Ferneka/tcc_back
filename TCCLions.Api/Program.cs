@@ -15,6 +15,10 @@ builder.Services.AddControllers();
 builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
 builder.Services.AddScoped(typeof(IAtaRepository), typeof(AtaRepository));
 builder.Services.AddScoped<IAtaService, AtaService>();
+builder.Services.AddScoped(typeof(IComissaoRepository), typeof(ComissaoRepository));
+builder.Services.AddScoped<IComissaoService, ComissaoService>();
+builder.Services.AddScoped(typeof(ITipoComissaoRepository), typeof(TipoComissaoRepository));
+builder.Services.AddScoped<ITipoComissaoService, TipoComissaoService>();
 builder.Services.AddDbContext<ApplicationDataContext>(opt => 
 opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();

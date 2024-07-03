@@ -25,26 +25,26 @@ namespace TCCLions.Api.Controllers
                 Titulo = request.Titulo,
                 Descricao = request.Descricao
             };
-            await _ataService.Add(ataDto);
-            return Ok();
+            var result = await _ataService.Add(ataDto);
+            return Ok(result);
         }
         [HttpGet]
         public async Task<ActionResult<List<AtaDto>>> GetAll(){
-            var request = await _ataService.GetAll();
-            if(request.Count < 0) return NoContent();
-            return Ok(request);
+            var result = await _ataService.GetAll();
+            if(result.Count < 1) return NoContent();
+            return Ok(result);
         }
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<AtaDto>> GetById(Guid id){
-            var request = await _ataService.GetById(id, ataDto);
-            if(request == null) return NotFound();
-            return Ok(request);
+            var result = await _ataService.GetById(id);
+            if(result == null) return NotFound();
+            return Ok(result);
         }
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id){
             var result = await _ataService.Delete(id);
-            if(!result) return NotFound();
-            return Ok();
+            if(!result) return BadRequest();
+            return Ok(result);
         }
         [HttpPut]
         public async Task<ActionResult> Update(Guid id, AtaViewModel request){
