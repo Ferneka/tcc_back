@@ -13,11 +13,11 @@ namespace TCCLions.Infrastructure.Services
     {
         private readonly IAtaRepository _repository = repository;
 
-        public async Task<Guid> Add(AtaDto ataDto)
+        public async Task<Guid> Add(AtaDto request)
         {
             var ata = new Ata {
-                Titulo = ataDto.Titulo,
-                Descricao = ataDto.Descricao
+                Titulo = request.Titulo,
+                Descricao = request.Descricao
             };
             await _repository.Add(ata);
             return ata.Id;
@@ -25,16 +25,16 @@ namespace TCCLions.Infrastructure.Services
 
         public async Task<bool> Delete(Guid id)
         {
-            var request = await _repository.Delete(id);
-            if(request) return true;
+            var result = await _repository.Delete(id);
+            if(result) return true;
             return false;
         }
 
         public async Task<List<AtaDto>> GetAll()
         {
-            var request = await _repository.GetAll();
-            if(request.Count() < 1) return null;
-            return request.Select(a => new AtaDto{
+            var result = await _repository.GetAll();
+            if(result.Count() < 1) return null;
+            return result.Select(a => new AtaDto{
                 IdAta = a.Id,
                 Titulo = a.Titulo,
                 Descricao = a.Descricao
@@ -43,22 +43,22 @@ namespace TCCLions.Infrastructure.Services
 
         public async Task<AtaDto> GetById(Guid id)
         {
-            var request = await _repository.GetById(id);
+            var result = await _repository.GetById(id);
             var ata = new AtaDto {
-                IdAta = request.Id,
-                Titulo = request.Titulo,
-                Descricao = request.Descricao
+                IdAta = result.Id,
+                Titulo = result.Titulo,
+                Descricao = result.Descricao
             };
             return ata;
         }
-        public async Task<bool> Update(Guid id, AtaDto ataDto)
+        public async Task<bool> Update(Guid id, AtaDto request)
         {
             var ata = new Ata{
-                Titulo = ataDto.Titulo,
-                Descricao = ataDto.Descricao
+                Titulo = request.Titulo,
+                Descricao = request.Descricao
             };
-            var request = await _repository.Update(id, ata);
-            if(request) return true;
+            var result = await _repository.Update(id, ata);
+            if(result) return true;
             return false;
         }
     }

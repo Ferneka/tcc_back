@@ -21,11 +21,11 @@ namespace TCCLions.Api.Controllers
         }
         [HttpPost]
         public async Task<ActionResult> Add(AtaViewModel request){
-            var ataDto = new AtaDto{
-                Titulo = request.Titulo,
-                Descricao = request.Descricao
-            };
-            var result = await _ataService.Add(ataDto);
+            var result = await _ataService.Add(
+                new AtaDto{
+                    Titulo = request.Titulo,
+                    Descricao = request.Descricao
+            });
             return Ok(result);
         }
         [HttpGet]

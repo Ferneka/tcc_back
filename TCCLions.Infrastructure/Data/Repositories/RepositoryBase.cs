@@ -35,8 +35,8 @@ namespace TCCLions.Infrastructure.Data.Repositories
 
         public async Task<bool> Delete(Guid id)
         {
-            var entity = _entity.Find(id);
-            _entity.Remove(entity);
+            var result = await _entity.FindAsync(id);
+            _entity.Remove(result);
             try
             {
                 return await _context.SaveChangesAsync() > 0;
@@ -47,13 +47,12 @@ namespace TCCLions.Infrastructure.Data.Repositories
                 throw;
             }
         }
-
         public async Task<List<TEntity>> GetAll()
         {
             try
             {
-                var request = await _entity.ToListAsync();
-                if(request.Any()) return request;
+                var result = await _entity.ToListAsync();
+                if(result.Any()) return result;
                 return null;
             }
             catch (System.Exception)
@@ -66,9 +65,9 @@ namespace TCCLions.Infrastructure.Data.Repositories
         {
             try
             {
-                var request = await _entity.FindAsync(id);
-                if(request == null) return null;
-                return request;
+                var result = await _entity.FindAsync(id);
+                if(result == null) return null;
+                return result;
             }
             catch (System.Exception)
             {
@@ -80,9 +79,9 @@ namespace TCCLions.Infrastructure.Data.Repositories
 
         public async Task<bool> Update(Guid id, TEntity entity)
         {
-            var request = await _entity.FindAsync(id);
-            if(request == null) return false; 
-            var entry = _context.Entry(request);
+            var result = await _entity.FindAsync(id);
+            if(result == null) return false; 
+            var entry = _context.Entry(result);
             foreach(var property in entry.Properties){
                 if(property.Metadata.Name != "Id"){
                     property.CurrentValue = entity.GetType().GetProperty(property.Metadata.Name).GetValue(entity);

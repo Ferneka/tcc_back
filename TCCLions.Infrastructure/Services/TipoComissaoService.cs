@@ -12,10 +12,10 @@ namespace TCCLions.Infrastructure.Services
     public class TipoComissaoService(ITipoComissaoRepository repository) : ITipoComissaoService
     {
         private readonly ITipoComissaoRepository _repository = repository;
-        public async Task<Guid> Add(TipoComissaoDto tipoComissaoDto)
+        public async Task<Guid> Add(TipoComissaoDto request)
         {
             var tipoComissao = new TipoComissao{
-                Descricao = tipoComissaoDto.Descricao
+                Descricao = request.Descricao
             };
             await _repository.Add(tipoComissao);
             return tipoComissao.Id;
@@ -23,16 +23,16 @@ namespace TCCLions.Infrastructure.Services
 
         public async Task<bool> Delete(Guid id)
         {
-            var request = await _repository.Delete(id);
-            if(!request) return false;
+            var result = await _repository.Delete(id);
+            if(!result) return false;
             return true; 
         }
 
         public async Task<List<TipoComissaoDto>> GetAll()
         {
-            var request = await _repository.GetAll();
-            if(request.Count() < 1) return null;
-            return request.Select(t => new TipoComissaoDto{
+            var result = await _repository.GetAll();
+            if(result.Count() < 1) return null;
+            return result.Select(t => new TipoComissaoDto{
                 IdTipoComissao = t.Id,
                 Descricao = t.Descricao
             }).ToList();
@@ -40,22 +40,22 @@ namespace TCCLions.Infrastructure.Services
 
         public async Task<TipoComissaoDto> GetById(Guid id)
         {
-            var request = await _repository.GetById(id);
-            if(request == null) return null;
+            var result = await _repository.GetById(id);
+            if(result == null) return null;
             var tipoComissao = new TipoComissaoDto{
-                IdTipoComissao = request.Id,
-                Descricao = request.Descricao
+                IdTipoComissao = result.Id,
+                Descricao = result.Descricao
             };
             return tipoComissao;
         }
 
-        public async Task<bool> Update(Guid id, TipoComissaoDto tipoComissaoDto)
+        public async Task<bool> Update(Guid id, TipoComissaoDto request)
         {
             var tipoComissao = new TipoComissao{
-                Descricao = tipoComissaoDto.Descricao
+                Descricao = request.Descricao
             };
-            var request = await _repository.Update(id, tipoComissao);
-            if(!request) return false;
+            var result = await _repository.Update(id, tipoComissao);
+            if(!result) return false;
             return true;           
         }
     }

@@ -7,7 +7,6 @@ namespace TCCLions.Api.Application
 {
     public class TipoDespesaViewModel
     {
-        public Guid IdTipoDespesa {get; set;} 
         public string Descricao {get; set;}
     }
 }

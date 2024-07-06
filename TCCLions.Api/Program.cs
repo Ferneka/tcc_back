@@ -19,6 +19,12 @@ builder.Services.AddScoped(typeof(IComissaoRepository), typeof(ComissaoRepositor
 builder.Services.AddScoped<IComissaoService, ComissaoService>();
 builder.Services.AddScoped(typeof(ITipoComissaoRepository), typeof(TipoComissaoRepository));
 builder.Services.AddScoped<ITipoComissaoService, TipoComissaoService>();
+builder.Services.AddScoped(typeof(ITipoDespesaRepository), typeof(TipoDespesaRepository));
+builder.Services.AddScoped<ITipoDespesaService, TipoDespesaService>();
+builder.Services.AddScoped(typeof(IMembroRepository), typeof(MembroRepository));
+builder.Services.AddScoped<IMembroService, MembroService>();
+builder.Services.AddScoped(typeof(IDespesaRepository), typeof(DespesaRepository));
+builder.Services.AddScoped<IDespesaService, DespesaService>();
 builder.Services.AddDbContext<ApplicationDataContext>(opt => 
 opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();

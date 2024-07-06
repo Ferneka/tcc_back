@@ -8,9 +8,9 @@ namespace TCCLions.Infrastructure.Services.Interfaces
 {
     public interface ITipoComissaoService
     {
-        Task<Guid> Add(TipoComissaoDto tipoComissaoDto);
+        Task<Guid> Add(TipoComissaoDto request);
         Task<bool> Delete(Guid id);
-        Task<bool> Update(Guid id, TipoComissaoDto tipoComissaoDto);
+        Task<bool> Update(Guid id, TipoComissaoDto request);
         Task<TipoComissaoDto> GetById(Guid id);
         Task<List<TipoComissaoDto>> GetAll();
 

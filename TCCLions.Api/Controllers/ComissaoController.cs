@@ -16,10 +16,10 @@ namespace TCCLions.Api.Controllers
         private readonly IComissaoService _comissaoService = comissaoService;
         [HttpPost]
         public async Task<ActionResult> Add(ComissaoViewModel request){
-            var comissaoDto = new ComissaoDto{
-                IdTipoComissao = request.IdTipoComissao
-            };
-            var result = await _comissaoService.Add(comissaoDto);
+            var result = await _comissaoService.Add( 
+                new ComissaoDto{
+                    IdTipoComissao = request.IdTipoComissao
+            });
             return Ok(result);
         }
         [HttpGet]
@@ -42,10 +42,10 @@ namespace TCCLions.Api.Controllers
         }
         [HttpPut("{id:guid}")]
         public async Task<ActionResult> Update(Guid id, ComissaoViewModel request){
-            var comissaoDto = new ComissaoDto{
-                IdTipoComissao = request.IdTipoComissao
-            };
-            var result = await _comissaoService.Update(id, comissaoDto);
+            var result = await _comissaoService.Update(id,  
+                new ComissaoDto{
+                    IdTipoComissao = request.IdTipoComissao
+            });
             if(!result) return BadRequest();
             return Ok();
         }
