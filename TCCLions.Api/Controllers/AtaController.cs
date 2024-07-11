@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TCCLions.Api.Application;
 using TCCLions.Infrastructure.Data.Dtos;
 using TCCLions.Infrastructure.Services;
 using TCCLions.Infrastructure.Services.Interfaces;
+using TCCLions.Api.Application.Models.ViewModels;
 
 namespace TCCLions.Api.Controllers
 {
@@ -29,16 +29,29 @@ namespace TCCLions.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        public async Task<ActionResult<List<AtaDto>>> GetAll(){
+        public async Task<ActionResult<List<AtaViewModel>>> GetAll(){
             var result = await _ataService.GetAll();
             if(result.Count < 1) return NoContent();
-            return Ok(result);
+            var response = new List<AtaViewModel>();
+            foreach(var ata in result){
+                response.Add(new AtaViewModel{
+                    Id = ata.Id,
+                    Titulo = ata.Titulo,
+                    Descricao = ata.Descricao
+                });
+            }
+            return Ok(response);
         }
         [HttpGet("{id:guid}")]
-        public async Task<ActionResult<AtaDto>> GetById(Guid id){
+        public async Task<ActionResult<AtaViewModel>> GetById(Guid id){
             var result = await _ataService.GetById(id);
             if(result == null) return NotFound();
-            return Ok(result);
+            var response = new AtaViewModel{
+                Id = result.Id,
+                Titulo = result.Titulo,
+                Descricao = result.Descricao
+            };
+            return Ok(response);
         }
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id){

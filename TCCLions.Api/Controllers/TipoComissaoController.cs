@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TCCLions.Api.Application;
+using TCCLions.Api.Application.Models.ViewModels;
 using TCCLions.Infrastructure.Data.Dtos;
 using TCCLions.Infrastructure.Services.Interfaces;
 
@@ -23,16 +24,24 @@ namespace TCCLions.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        public async Task<ActionResult<List<TipoComissaoDto>>> GetAll(){
+        public async Task<ActionResult<List<TipoComissaoViewModel>>> GetAll(){
             var result = await _tipoComissaoService.GetAll();
             if(result.Count() < 1) return NoContent();
-            return Ok(result);
+            var response = result.Select(tc => new TipoComissaoViewModel{
+                Id = tc.Id,
+                Descricao = tc.Descricao
+            }).ToList();
+            return Ok(response);
         }
         [HttpGet("{id:guid}")]
-        public async Task<ActionResult<TipoComissaoDto>> GetById(Guid id){
+        public async Task<ActionResult<TipoComissaoViewModel>> GetById(Guid id){
             var result = await _tipoComissaoService.GetById(id);
             if(result == null) return NotFound();
-            return Ok(result);
+            var response = new TipoComissaoViewModel{
+                Id = result.Id,
+                Descricao = result.Descricao
+            };
+            return Ok(response);
         }
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id){

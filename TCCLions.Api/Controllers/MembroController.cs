@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TCCLions.Api.Application;
+using TCCLions.Api.Application.Models.ViewModels;
 using TCCLions.Domain.Data.Models;
 using TCCLions.Infrastructure.Data.Dtos;
 using TCCLions.Infrastructure.Services.Interfaces;
@@ -32,16 +33,38 @@ namespace TCCLions.Api.Controllers
             return Ok(result);
         } 
         [HttpGet]
-        public async Task<ActionResult<List<MembroDto>>> GetAll(){
+        public async Task<ActionResult<List<MembroViewModel>>> GetAll(){
             var result = await _service.GetAll();
-            if(result.Any()) return Ok(result);
-            return NoContent();
+            if(result.Count() < 1) return NoContent();
+            var response = result.Select(m => new MembroViewModel{
+                Id = m.Id,
+                Nome = m.Nome,
+                Endereco = m.Endereco,
+                Bairro = m.Bairro,
+                Cidade = m.Cidade,
+                Cep = m.Cep,
+                Email = m.Email,
+                EstadoCivil = m.EstadoCivil,
+                CPF = m.CPF
+            }).ToList();
+            return Ok(response);
         }
         [HttpGet("{id:guid}")]
-        public async Task<ActionResult<MembroDto>> GetById(Guid id){
+        public async Task<ActionResult<MembroViewModel>> GetById(Guid id){
             var result = await _service.GetById(id);
             if(result == null) return NotFound();
-            return Ok(result);
+            var response = new MembroViewModel{
+                Id = result.Id,
+                Nome = result.Nome,
+                Endereco = result.Endereco,
+                Bairro = result.Bairro,
+                Cidade = result.Cidade,
+                Cep = result.Cep,
+                Email = result.Email,
+                EstadoCivil = result.EstadoCivil,
+                CPF = result.CPF
+            };
+            return Ok(response);
         }
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id){

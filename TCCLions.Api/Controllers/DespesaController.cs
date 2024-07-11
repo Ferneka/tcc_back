@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TCCLions.Api.Application;
+using TCCLions.Api.Application.Models.ViewModels;
 using TCCLions.Infrastructure.Data.Dtos;
 using TCCLions.Infrastructure.Services.Interfaces;
 
@@ -25,16 +26,30 @@ namespace TCCLions.Api.Controllers
             return Ok(result);
         }
         [HttpGet]
-        public async Task<ActionResult<List<DespesaDto>>> GetAll(){
+        public async Task<ActionResult<List<DespesaViewModel>>> GetAll(){
             var result = await _service.GetAll();
-            if(result.Any()) return Ok(result);
-            return NoContent();
+            if(result.Count() < 1) return NoContent(); 
+            var response = result.Select(d => new DespesaViewModel{
+                Id = d.Id,
+                DataVencimento = d.DataVencimento,
+                DataRegistro = d.DataRegistro,
+                ValorTotal = d.ValorTotal,
+                IdMembro = d.IdMembro
+            }).ToList();
+            return Ok(response);
         }
         [HttpGet("{id:guid}")]
-        public async Task<ActionResult<DespesaDto>> GetById(Guid id){
+        public async Task<ActionResult<DespesaViewModel>> GetById(Guid id){
             var result = await _service.GetById(id);
             if(result == null) return NotFound();
-            return Ok(result);
+            var response = new DespesaViewModel{
+                Id = result.Id,
+                DataVencimento = result.DataVencimento,
+                DataRegistro = result.DataRegistro,
+                ValorTotal = result.ValorTotal,
+                IdMembro = result.IdMembro
+            };
+            return Ok(response);
         }
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id){

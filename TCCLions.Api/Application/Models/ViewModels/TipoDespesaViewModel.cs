@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TCCLions.Api.Application
+namespace TCCLions.Api.Application.Models.ViewModels
 {
-    public class TipoComissaoViewModel
+    public class TipoDespesaViewModel
     {
+        public Guid Id {get; set;}
         public string Descricao {get; set;}
-        
+
     }
 }
