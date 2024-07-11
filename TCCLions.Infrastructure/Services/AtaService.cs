@@ -35,7 +35,7 @@ namespace TCCLions.Infrastructure.Services
             var result = await _repository.GetAll();
             if(result.Count() < 1) return null;
             return result.Select(a => new AtaDto{
-                IdAta = a.Id,
+                Id = a.Id,
                 Titulo = a.Titulo,
                 Descricao = a.Descricao
             }).ToList(); 
@@ -45,7 +45,7 @@ namespace TCCLions.Infrastructure.Services
         {
             var result = await _repository.GetById(id);
             var ata = new AtaDto {
-                IdAta = result.Id,
+                Id = result.Id,
                 Titulo = result.Titulo,
                 Descricao = result.Descricao
             };

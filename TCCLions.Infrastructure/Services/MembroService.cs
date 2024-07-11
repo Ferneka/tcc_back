@@ -39,7 +39,7 @@ namespace TCCLions.Infrastructure.Services
         {
             var result = await  _repository.GetAll();
             if(result.Any()) return result.Select(m => new MembroDto{
-                IdMembro = m.Id,
+                Id = m.Id,
                 Nome= m.Nome,
                 Endereco = m.Endereco,
                 Bairro = m.Bairro,
@@ -57,7 +57,7 @@ namespace TCCLions.Infrastructure.Services
            var result = await _repository.GetById(id);
            if(result == null) return null;
            var membro = new MembroDto{
-             IdMembro = result.Id,
+             Id = result.Id,
              Nome = result.Nome,
              Endereco = result.Endereco,
              Bairro = result.Bairro,

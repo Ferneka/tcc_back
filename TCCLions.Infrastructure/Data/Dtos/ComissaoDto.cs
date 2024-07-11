@@ -7,7 +7,7 @@ namespace TCCLions.Infrastructure.Data.Dtos
 {
     public class ComissaoDto
     {
-        public Guid IdComissao {get; set;}
+        public Guid Id {get; set;}
         public Guid IdTipoComissao {get; set;}
     }
 }

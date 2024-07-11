@@ -19,17 +19,10 @@ namespace TCCLions.Infrastructure.Data.Repositories
         public async Task<Guid> Add(TEntity entity)
         {
             _entity.Add(entity);
-           
             var getId = entity.GetType().GetProperty("Id");
-            try
-            {
-                await _context.SaveChangesAsync();
-                return (Guid)getId.GetValue(entity); 
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            await _context.SaveChangesAsync();
+            return (Guid)getId.GetValue(entity); 
+            
             
         }
 

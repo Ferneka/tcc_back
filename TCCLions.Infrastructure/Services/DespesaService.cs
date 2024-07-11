@@ -36,7 +36,7 @@ namespace TCCLions.Infrastructure.Services
         {
            var result = await _repository.GetAll();
            if(result.Any()) return result.Select(d => new DespesaDto{
-                IdDespesa = d.Id,
+                Id = d.Id,
                 DataVencimento = d.DataVencimento,
                 DataRegistro = d.DataRegistro,
                 ValorTotal = d.ValorTotal,
@@ -50,7 +50,7 @@ namespace TCCLions.Infrastructure.Services
             var result = await _repository.GetById(id);
             if(result == null) return null;
             return new DespesaDto{
-                IdDespesa = result.Id,
+                Id = result.Id,
                 DataVencimento = result.DataVencimento,
                 DataRegistro = result.DataRegistro,
                 ValorTotal = result.ValorTotal,
