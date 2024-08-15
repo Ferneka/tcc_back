@@ -5,14 +5,21 @@ using System.Threading.Tasks;
 
 namespace TCCLions.Domain.Data.Models
 {
-    public class DespesaTipoDespesa
+    public class DespesaTipoDespesa 
     {
-        public Guid IdDespesaTipoDespesa {get; private set;} = Guid.NewGuid();
+        public Guid Id {get; private set;} = Guid.NewGuid();
         public Guid IdDespesa {get; set;}
         public Despesa Despesa {get; set;}
         public Guid IdTipoDespesa {get; set;}
         public TipoDespesa TipoDespesa {get; set;}
         public double Valor {get; set;}
+
+        public void Update(Guid idDespesa, Guid idTipoDespesa, double valor)
+        {
+            IdDespesa = idDespesa;
+            IdTipoDespesa = idTipoDespesa;
+            Valor = valor;
+        }
 
         
     }

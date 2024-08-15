@@ -17,25 +17,282 @@ namespace TCCLions.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
 
-            modelBuilder.Entity("TCCLions.Domain.Data.Models.Administrador", b =>
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.Ata", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("AdminLogin")
+                    b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("AdminLogin");
+                        .HasColumnType("text")
+                        .HasColumnName("AtaDescricao");
 
-                    b.Property<string>("AdminSenha")
+                    b.Property<string>("Titulo")
                         .IsRequired()
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("AdminSenha");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("AtaTitulo");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Administrador", (string)null);
+                    b.ToTable("Ata", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.Comissao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("IdTipoComissao")
+                        .HasColumnType("text")
+                        .HasColumnName("IdTipoComissao");
+
+                    b.Property<Guid?>("TipoComissaoId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TipoComissaoId");
+
+                    b.ToTable("Comissao", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.Despesa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DataRegistro")
+                        .IsRequired()
+                        .HasColumnType("date")
+                        .HasColumnName("DataRegistro");
+
+                    b.Property<string>("DataVencimento")
+                        .IsRequired()
+                        .HasColumnType("date")
+                        .HasColumnName("DataVencimento");
+
+                    b.Property<Guid>("IdMembro")
+                        .HasColumnType("text")
+                        .HasColumnName("IdMembro");
+
+                    b.Property<Guid?>("MembroId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("ValorTotal")
+                        .HasColumnType("decimal(8,2)")
+                        .HasColumnName("ValorTotal");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MembroId");
+
+                    b.ToTable("Despesa", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.DespesaTipoDespesa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("DespesaId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("IdDespesa")
+                        .HasColumnType("text")
+                        .HasColumnName("IdDespesa");
+
+                    b.Property<Guid>("IdTipoDespesa")
+                        .HasColumnType("text")
+                        .HasColumnName("IdTipoDespesa");
+
+                    b.Property<Guid?>("TipoDespesaId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("money")
+                        .HasColumnName("ValorDespesa");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DespesaId");
+
+                    b.HasIndex("TipoDespesaId");
+
+                    b.ToTable("Despesa e Tipo Despesa", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.Membro", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Bairro");
+
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("varchar(11)")
+                        .HasColumnName("CPF");
+
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Cep");
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Cidade");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(80)")
+                        .HasColumnName("Email");
+
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Endereco");
+
+                    b.Property<string>("EstadoCivil")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EstadoCivil");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Nome");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Membro", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.MembroComissao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("ComissaoId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DataFim")
+                        .IsRequired()
+                        .HasColumnType("date")
+                        .HasColumnName("DataFim");
+
+                    b.Property<string>("DataInicio")
+                        .IsRequired()
+                        .HasColumnType("date")
+                        .HasColumnName("DataInicio");
+
+                    b.Property<Guid>("IdComissao")
+                        .HasColumnType("text")
+                        .HasColumnName("IdComissao");
+
+                    b.Property<Guid>("IdMembro")
+                        .HasColumnType("text")
+                        .HasColumnName("IdMembro");
+
+                    b.Property<Guid?>("MembroId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ComissaoId");
+
+                    b.HasIndex("MembroId");
+
+                    b.ToTable("Membro e Comissao", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.TipoComissao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Descricao");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoComissao", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.TipoDespesa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Descricao");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TipoDespesa", (string)null);
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.Comissao", b =>
+                {
+                    b.HasOne("TCCLions.Domain.Data.Models.TipoComissao", "TipoComissao")
+                        .WithMany()
+                        .HasForeignKey("TipoComissaoId");
+
+                    b.Navigation("TipoComissao");
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.Despesa", b =>
+                {
+                    b.HasOne("TCCLions.Domain.Data.Models.Membro", "Membro")
+                        .WithMany()
+                        .HasForeignKey("MembroId");
+
+                    b.Navigation("Membro");
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.DespesaTipoDespesa", b =>
+                {
+                    b.HasOne("TCCLions.Domain.Data.Models.Despesa", "Despesa")
+                        .WithMany()
+                        .HasForeignKey("DespesaId");
+
+                    b.HasOne("TCCLions.Domain.Data.Models.TipoDespesa", "TipoDespesa")
+                        .WithMany()
+                        .HasForeignKey("TipoDespesaId");
+
+                    b.Navigation("Despesa");
+
+                    b.Navigation("TipoDespesa");
+                });
+
+            modelBuilder.Entity("TCCLions.Domain.Data.Models.MembroComissao", b =>
+                {
+                    b.HasOne("TCCLions.Domain.Data.Models.Comissao", "Comissao")
+                        .WithMany()
+                        .HasForeignKey("ComissaoId");
+
+                    b.HasOne("TCCLions.Domain.Data.Models.Membro", "Membro")
+                        .WithMany()
+                        .HasForeignKey("MembroId");
+
+                    b.Navigation("Comissao");
+
+                    b.Navigation("Membro");
                 });
 #pragma warning restore 612, 618
         }

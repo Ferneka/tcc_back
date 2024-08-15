@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TCCLions.Infrastructure.Data;
-
+using Microsoft.Extensions.DependencyInjection;
+using TCCLions.Api;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddScoppedServices();
+builder.Services.AddCors();
 builder.Services.AddDbContext<ApplicationDataContext>(opt => 
 opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
@@ -22,4 +25,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();
-
+app.UseCors( opt => {
+    opt.AllowAnyHeader();
+    opt.AllowAnyOrigin();
+    opt.AllowAnyMethod();
+});

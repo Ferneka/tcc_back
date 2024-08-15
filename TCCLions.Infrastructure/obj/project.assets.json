@@ -2581,19 +2581,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Marciana\\.nuget\\packages\\": {}
+    "C:\\Users\\caua.cardoso\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
+      "projectUniqueName": "C:\\dev\\tcc_back\\TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
       "projectName": "TCCLions.Infrastructure",
-      "projectPath": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Marciana\\.nuget\\packages\\",
-      "outputPath": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Infrastructure\\obj\\",
+      "projectPath": "C:\\dev\\tcc_back\\TCCLions.Infrastructure\\TCCLions.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\caua.cardoso\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\tcc_back\\TCCLions.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Marciana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\caua.cardoso\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2601,15 +2601,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Domain\\TCCLions.Domain.csproj": {
-              "projectPath": "C:\\src\\TCC\\TCCLionsBack\\TCCLions.Domain\\TCCLions.Domain.csproj"
+            "C:\\dev\\tcc_back\\TCCLions.Domain\\TCCLions.Domain.csproj": {
+              "projectPath": "C:\\dev\\tcc_back\\TCCLions.Domain\\TCCLions.Domain.csproj"
             }
           }
         }
@@ -2618,11 +2617,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2666,7 +2660,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
